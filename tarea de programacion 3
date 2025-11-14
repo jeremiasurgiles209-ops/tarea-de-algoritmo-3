@@ -1,0 +1,475 @@
+//pregunta 1
+import java.util.Scanner;
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingresa el valor de n: ");
+        int n = sc.nextInt();
+
+        int a = 0, b = 1;
+
+        System.out.print("Serie: ");
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(a);
+
+            if (i < n - 1) {
+                System.out.print(", ");
+            }
+
+            int siguiente = a + b;
+            a = b;
+            b = siguiente;
+        }
+    }
+}
+//pregunta 2
+import java.util.Scanner;
+
+public class Divisores {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingresa un número: ");
+        int n = sc.nextInt();
+
+        System.out.print("Divisores: ");
+
+        for (int i = 1; i <= n; i++) {
+            if (n % i == 0) {
+                System.out.print(i);
+
+                if (i < n) {
+                    System.out.print(", ");
+                }
+            }
+        }
+    }
+}
+//pregunta 3
+import java.util.Scanner;
+
+public class SumaDivisores {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingresa un número: ");
+        int n = sc.nextInt();
+
+        int suma = 0;
+
+        for (int i = 1; i <= n; i++) {
+            if (n % i == 0) {
+                suma += i;
+            }
+        }
+
+        System.out.println("Suma de divisores: " + suma);
+    }
+}
+//pregunta 4
+import java.util.Scanner;
+
+public class NumeroPerfecto {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingresa un número: ");
+        int n = sc.nextInt();
+
+        int suma = 0;
+
+        // Sumar divisores desde 1 hasta n - 1
+        for (int i = 1; i < n; i++) {
+            if (n % i == 0) {
+                suma += i;
+            }
+        }
+
+        // Verificar si es perfecto
+        if (suma == n) {
+            System.out.println(n + " es un número perfecto.");
+        } else {
+            System.out.println(n + " NO es un número perfecto.");
+        }
+    }
+}
+//pregunta 5
+import java.util.Scanner;
+
+public class NumeroPrimo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingresa un número: ");
+        int n = sc.nextInt();
+
+        boolean esPrimo = true;
+
+        if (n <= 1) {
+            esPrimo = false; 
+        } else {
+            // Recorrer desde 2 hasta n - 1
+            for (int i = 2; i < n; i++) {
+                if (n % i == 0) {
+                    esPrimo = false;
+                    break;
+                }
+            }
+        }
+
+        // Mostrar resultado
+        if (esPrimo) {
+            System.out.println(n + " es un número primo.");
+        } else {
+            System.out.println(n + " NO es un número primo.");
+        }
+    }
+}
+//pregunta 6
+import java.util.Scanner;
+
+public class InvertirNumero {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingresa un número: ");
+        int n = sc.nextInt();
+
+        int invertido = 0;
+        int original = n;
+
+        // Invertir el número
+        while (n > 0) {
+            int ultimo = n % 10;        // Tomar el último dígito
+            invertido = invertido * 10 + ultimo; // Agregarlo al invertido
+            n /= 10;                    // Eliminar último dígito
+        }
+
+        System.out.println("Número invertido: " + invertido);
+    }
+}
+//pregunta 7
+import java.util.Scanner;
+
+public class ContarDigitos {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingresa un número: ");
+        int n = sc.nextInt();
+
+        int contador = 0;
+        int numero = n;
+
+        // Manejar el caso cuando n es 0
+        if (n == 0) {
+            contador = 1;
+        } else {
+            // Contar dígitos
+            while (n > 0) {
+                n = n / 10;  // Eliminar último dígito
+                contador++; // Incrementar contador
+            }
+        }
+
+        System.out.println("Cantidad de dígitos: " + contador);
+    }
+}
+//pregunta 8
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingresa un número: ");
+        int n = sc.nextInt();
+
+        long fact = 1;
+
+        // Calcular factorial
+        for (int i = 1; i <= n; i++) {
+            fact = fact * i;
+        }
+
+        System.out.println(n + "! = " + fact);
+    }
+}
+//pregunta 9
+import java.util.Scanner;
+
+public class SumasSucesivas {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingresa el número a sumar: ");
+        int numero = sc.nextInt();
+
+        System.out.print("Ingresa cuántas veces deseas sumarlo: ");
+        int veces = sc.nextInt();
+
+        int resultado = 0;
+
+        // Realizar sumas sucesivas
+        for (int i = 0; i < veces; i++) {
+            resultado = resultado + numero;
+        }
+
+        System.out.println("Resultado = " + resultado);
+    }
+}
+//pregunta 10
+import java.util.Scanner;
+
+public class RestasSucesivas {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingresa el número inicial: ");
+        int numero = sc.nextInt();
+
+        System.out.print("Ingresa el valor a restar: ");
+        int valor = sc.nextInt();
+
+        int resultado = numero;
+        int contador = 0;
+
+        // Realizar restas sucesivas
+        while (resultado >= valor) {
+            resultado = resultado - valor;
+            contador++;
+        }
+
+        System.out.println("Resultado final: " + resultado);
+        System.out.println("Número de restas realizadas: " + contador);
+    }
+}
+//bloque 2
+//pregunta 1
+public class FibonacciMultiple {
+    public static void main(String[] args) {
+        int[] n_valores = {5, 8, 10};
+
+        for (int n : n_valores) {
+            System.out.print("Fibonacci(" + n + "): ");
+
+            int a = 0, b = 1;
+
+            for (int i = 0; i < n; i++) {
+                System.out.print(a);
+
+                if (i < n - 1) {
+                    System.out.print(", ");
+                }
+
+                int siguiente = a + b;
+                a = b;
+                b = siguiente;
+            }
+
+            System.out.println();
+        }
+    }
+}
+//pregunta 2
+public class DivisoresMultiples {
+    public static void main(String[] args) {
+        int[] numeros = {6, 10, 15};
+
+        for (int n : numeros) {
+            System.out.print(n + " → ");
+
+            for (int i = 1; i <= n; i++) {
+                if (n % i == 0) {
+                    System.out.print(i);
+                    if (i < n) {
+                        System.out.print(", ");
+                    }
+                }
+            }
+
+            System.out.println();
+        }
+    }
+}
+//pregunta 3
+public class SumaDivisoresMultiples {
+    public static void main(String[] args) {
+        int[] numeros = {6, 12, 28};
+
+        for (int n : numeros) {
+            int suma = 0;
+
+            for (int i = 1; i <= n; i++) {
+                if (n % i == 0) {
+                    suma += i;
+                }
+            }
+
+            System.out.println(n + " → " + suma);
+        }
+    }
+}
+//pregunta 4
+public class NumerosPerfectosMultiples {
+    public static void main(String[] args) {
+        int[] numeros = {6, 10, 28, 30};
+
+        System.out.print("Números perfectos: ");
+
+        boolean primero = true; // Para no poner coma al inicio
+
+        for (int n : numeros) {
+            int suma = 0;
+
+            // Calcular la suma de los divisores (sin incluir el número)
+            for (int i = 1; i < n; i++) {
+                if (n % i == 0) {
+                    suma += i;
+                }
+            }
+
+            if (suma == n) {
+                if (!primero) {
+                    System.out.print(", ");
+                }
+                System.out.print(n);
+                primero = false;
+            }
+        }
+
+        System.out.println();
+    }
+}
+//pregunta 5
+public class NumerosPrimosMultiples {
+    public static void main(String[] args) {
+        int[] numeros = {5, 6, 7, 8, 11};
+
+        System.out.print("Primos: ");
+
+        boolean primero = true; // Para manejar las comas
+
+        for (int n : numeros) {
+            if (esPrimo(n)) {
+                if (!primero) {
+                    System.out.print(", ");
+                }
+                System.out.print(n);
+                primero = false;
+            }
+        }
+
+        System.out.println();
+    }
+
+    // Función para verificar si un número es primo
+    public static boolean esPrimo(int n) {
+        if (n <= 1) return false;
+
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+//pregunta 6
+public class InvertirDigitosMultiples {
+    public static void main(String[] args) {
+        int[] numeros = {123, 456, 780};
+
+        for (int n : numeros) {
+            int numero = n;
+            int invertido = 0;
+
+            while (numero > 0) {
+                int digito = numero % 10;
+                invertido = invertido * 10 + digito;
+                numero /= 10;
+            }
+
+            System.out.println(n + " → " + invertido);
+        }
+    }
+}
+//pregunta 7
+public class ContarDigitosMultiples {
+    public static void main(String[] args) {
+        int[] numeros = {45, 678, 12345};
+
+        for (int n : numeros) {
+            int numero = n;
+            int contador = 0;
+
+            if (numero == 0) {
+                contador = 1;
+            } else {
+                while (numero > 0) {
+                    numero /= 10;
+                    contador++;
+                }
+            }
+
+            System.out.println(n + " → " + contador + " dígitos");
+        }
+    }
+}
+//pregunta 8
+public class FactorialMultiples {
+    public static void main(String[] args) {
+        int[] numeros = {3, 4, 5};
+
+        for (int n : numeros) {
+            long factorial = 1;
+
+            for (int i = 1; i <= n; i++) {
+                factorial *= i;
+            }
+
+            System.out.println(n + "! = " + factorial);
+        }
+    }
+}
+//pregunta 9
+public class SumasSucesivasMultiples {
+    public static void main(String[] args) {
+        int[] numeros = {2, 3, 4};
+        int veces = 4;
+
+        for (int n : numeros) {
+            int resultado = 0;
+
+            // Sumas sucesivas
+            for (int i = 0; i < veces; i++) {
+                resultado += n;
+            }
+
+            System.out.println(n + " × " + veces + " = " + resultado);
+        }
+    }
+}
+//pregunta 10
+public class RestasSucesivasMultiples {
+    public static void main(String[] args) {
+        int[] numeros = {15, 22, 30};
+        int valor_resta = 4;
+
+        for (int n : numeros) {
+            int resultado = n;
+            int contador = 0;
+
+            while (resultado >= valor_resta) {
+                resultado -= valor_resta;
+                contador++;
+            }
+
+            System.out.println(n + " → " + resultado);
+        }
+    }
+}
